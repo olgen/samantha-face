@@ -8,7 +8,7 @@
     "url": ""
   },
   "scripts": {
-    "devserve": "webpack-dev-server -d --config webpack.config.js --content-base public/ --progress --colors",
+    "devserve": "webpack-dev-server -d --config webpack.config.js --content-base out/ --progress --colors",
     "devbuild": "webpack -d --config webpack.config.js --profile --progress --colors"
   },
   "author": "Your Name",

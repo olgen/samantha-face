@@ -1,3 +1,11 @@
+/*eslint-disable*/
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+
+function absolutePathTo(relativePath) {
+  return path.join(__dirname, relativePath);
+}
+
 module.exports = {
   entry: ['./src/main.js'],
   output: {
@@ -16,5 +24,16 @@ module.exports = {
         },
       },
     ]
-  }
+  },
+  resolve: {
+    root: [
+      absolutePathTo('src'),
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: 'index.html',
+    }),
+  ]
 };
