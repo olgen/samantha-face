@@ -1,13 +1,20 @@
 module.exports = {
-  entry: ['./client/main.jsx'],
+  entry: ['./src/main.js'],
   output: {
-    path: './public',
+    path: './out',
     filename: 'bundle.js'
   },
   module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.jsx$/, loader: 'jsx-loader' }
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+        },
+      },
     ]
   }
 };
