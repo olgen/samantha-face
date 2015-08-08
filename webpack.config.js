@@ -1,13 +1,39 @@
+/*eslint-disable*/
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+
+function absolutePathTo(relativePath) {
+  return path.join(__dirname, relativePath);
+}
+
 module.exports = {
-  entry: ['./client/main.jsx'],
+  entry: ['./src/main.js'],
   output: {
-    path: './public',
+    path: './out',
     filename: 'bundle.js'
   },
   module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.jsx$/, loader: 'jsx-loader' }
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+        },
+      },
     ]
-  }
+  },
+  resolve: {
+    root: [
+      absolutePathTo('src'),
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      filename: 'index.html',
+    }),
+  ]
 };
