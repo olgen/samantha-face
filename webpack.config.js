@@ -12,6 +12,7 @@ module.exports = {
     path: './out',
     filename: 'bundle.js'
   },
+  devtool: 'inline-source-map',
   module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' },
