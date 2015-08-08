@@ -29,6 +29,7 @@ module.exports = {
   resolve: {
     root: [
       absolutePathTo('src'),
+      absolutePathTo('data'),
     ]
   },
   plugins: [

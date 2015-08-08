@@ -1,4 +1,5 @@
 import React from "react";
+import commitsSmall from "json!commits_small.json";
 
 const Timeline = React.createClass({
   propTypes: {
@@ -7,7 +8,13 @@ const Timeline = React.createClass({
   render() {
     return (
       <div>
-        I'm a Timeline
+        {
+          commitsSmall.map((commit) => {
+            return (
+              <div> { commit.title }, { commit.created_at } </div>
+            );
+          })
+        }
       </div>
     );
   },
