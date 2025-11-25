@@ -1,2 +1,2 @@
-# samantha-face
-The frontend of the samantha platform.
+# Free AI at api.airforce
+https://discord.gg/AJDsM7jtbq
